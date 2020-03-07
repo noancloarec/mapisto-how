@@ -1,3 +1,7 @@
-FROM jekyll/jekyll:3.8
+FROM jekyll/jekyll:3.8 as builder
 ADD . /srv/jekyll
-ENTRYPOINT [ "jekyll", "serve" ]
+RUN jekyll build
+FROM python:3.7-stretch
+COPY --from=builder /srv/jekyll/_site /site
+WORKDIR /site
+CMD [ "python3", "-m", "http.server" ]

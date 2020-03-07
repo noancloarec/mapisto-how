@@ -4,5 +4,5 @@
 
 layout: home
 ---
-
-[First article](tech/auto-deploy-github-and-docker)
+Tech articles
+[First article](tech/auto-deploy-github-and-docker.html)
